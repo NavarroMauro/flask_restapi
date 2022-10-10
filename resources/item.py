@@ -54,8 +54,8 @@ class ItemList(MethodView):
       @jwt_required()
       @blp.arguments(ItemSchema)
       @blp.response(201, ItemSchema)
-      def post(self, item_data, store_id):
-            item = ItemModel(**item_data, store_id=store_id)
+      def post(self, item_data):
+            item = ItemModel(**item_data)
             
             try:
                   db.session.add(item)
